@@ -1,0 +1,72 @@
+html  {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before  {
+  box-sizing: inherit;
+}
+
+body  {
+  background: linear-gradient(#615dad,  #ffc8da);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
+  margin: 0;
+}
+
+main  {
+  background-color: #283e50;
+  width: 220px;
+  margin: auto;
+  margin-top: 0.2rem;
+  border-radius: 5px 5px 0 0;
+}
+
+.img-main  {
+  width: 220px;
+  border-radius: 5px 5px 0 0;
+}
+
+.heading  {
+  text-align: center;
+  color: white;
+  font-family: 'Lobster',  cursive;
+  font-size: 3rem;
+  margin: 1.5rem;
+}
+
+.description  {
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat',  sans-serif;
+  font-size: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.btn  {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-family: 'Montserrat',  sans-serif;
+  display: block;
+  padding: 1rem 0 1rem 0;
+}
+
+.btn-rules  {
+  background-color: #1fcca4;
+  border-bottom: 0.1rem solid #283e50;
+}
+
+.btn-start  {
+  background-color: #0197f6;
+}
+
+.btn-rules:hover  {
+  background-color: #1cbb96;
+}
+
+.btn-start:hover  {
+  background-color: #0090e9;
+}
