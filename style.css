@@ -78,19 +78,6 @@ main {
   background-color: #0090e9;
 }
 
-h1.heading-pravidla {
-  text-align: center;
-  width: 90%;
-}
-
-.heading-pravidla {
-  color: white;
-  font-family: 'Lobster',  cursive;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
 ol.rules {
   color: white;
   margin-right: 40px;
