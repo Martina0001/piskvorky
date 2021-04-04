@@ -143,3 +143,27 @@ li.rules__item {
     max-width: 550px;
   }
 }
+
+/*stylování "play" hra.html*/
+.play {
+  background-image: linear-gradient(#615dad, #ffc8da);
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.5;
+  margin-top: 25px;
+  text-align: center;
+  width: 60vmin;
+}
+
+/*button styl*/
+.button {
+  border: 1px solid var;
+  color: darkblue;
+  cursor: pointer;
+  flex: 0 0 calc(0, 10);
+  opacity: 3;
+}
+.button:hover,
+.button:active {
+  opacity: 0, 9;
+}
