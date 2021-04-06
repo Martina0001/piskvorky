@@ -144,15 +144,23 @@ li.rules__item {
   }
 }
 
-/*stylování "play" hra.html*/
-.play {
+/*stylování "kontejner" hra.html*/
+.kontejner {
   background-image: linear-gradient(#615dad, #ffc8da);
   display: flex;
-  flex-wrap: wrap;
+  flex-basis: auto;
+  flex-grow: 1;
+  height: 100px;
+
+  margin: 10px 10px 10px 10px;
+  padding: 0;
+  width: 60vmin;
+
+  /***flex-wrap: wrap;
   line-height: 1.5;
   margin-top: 25px;
   text-align: center;
-  width: 60vmin;
+  width: 60vmin;***/
 }
 
 /*button styl*/
