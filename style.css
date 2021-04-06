@@ -143,35 +143,104 @@ li.rules__item {
     max-width: 550px;
   }
 }
+/**************************************************************************************************************/
+/*game__pole_naprostředek*/
 
-/*stylování "kontejner" hra.html*/
-.kontejner {
-  background-image: linear-gradient(#615dad, #ffc8da);
-  display: flex;
-  flex-basis: auto;
-  flex-grow: 1;
-  height: 100px;
-
-  margin: 10px 10px 10px 10px;
-  padding: 0;
-  width: 60vmin;
-
-  /***flex-wrap: wrap;
-  line-height: 1.5;
-  margin-top: 25px;
-  text-align: center;
-  width: 60vmin;***/
+.game {
+  color: #ffffff;
+  font-size: 20px;
+  max-width: 80vmin;
+  margin: 2rem auto;
+}
+/*název_piškvorky*/
+.header {
+  background: linear-gradient(#615dad,  #ffc8da);
+  color: whitesmoke;
+  font-family: 'Lobster',  cursive;
+  font-size: 5rem;
+  margin: 1.5rem;
+  text-align: auto;
 }
 
-/*button styl*/
 .button {
-  border: 1px solid var;
-  color: darkblue;
-  cursor: pointer;
-  flex: 0 0 calc(0, 10);
-  opacity: 3;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 2rem;
 }
-.button:hover,
-.button:active {
-  opacity: 0, 9;
+
+.circle {
+  display: flex;
+  align-items: center;
+  margin: 0%;
+}
+
+.box-left.circle {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 10px;
+}
+
+.box-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 0;
+  width: calc((100% - 1rem) / 3);
+}
+
+.ikona-home {
+  background-color: #1fcca4;
+  display: block;
+  margin: 0 3%;
+  padding: 3%;
+  border-radius: 5px;
+}
+
+.ikona-home:hover,
+.ikona-home:focus {
+  background-color: #1cbb96;
+}
+
+.restart {
+  background-color: #0197f6;
+  display: block;
+  margin: 0 3%;
+  padding: 3%;
+  border-radius: 5px;
+}
+
+.restart:hover,
+.restart:focus {
+  background-color: #0090e9;
+}
+/*pozadí*/
+.game {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vmin;
+  margin-top: 1rem;
+  background: rgb(229, 182, 210);
+  background: linear-gradient(
+    10deg,
+    rgba(229, 182, 210, 1) 0%,
+    rgba(178, 148, 196, 1) 100%
+  );
+}
+
+.game_button {
+  width: 10%;
+  background-color: white;
+  border: 1px solid rgb(38, 28, 78);
+}
+
+.game_button:hover,
+.game_button:focus {
+  background-color: rgba(255, 255, 255, 0.7);
 }
