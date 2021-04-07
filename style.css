@@ -235,7 +235,8 @@ li.rules__item {
 }
 
 .game_button {
-  width: 10%;
+  height: 10%;
+  width: 8%;
   background-color: white;
   border: 1px solid rgb(38, 28, 78);
 }
