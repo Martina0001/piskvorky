@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: rgb(38, 28, 78);
+  background: linear-gradient(#615dad, #ffc8da);
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: auto;
@@ -145,7 +145,75 @@ li.rules__item {
 }
 /**************************************************************************************************************/
 /*game__pole_naprostředek*/
+.proklik {
+  display: flex;
+}
 
+.home {
+  background-color: #1fcca4;
+  padding: 1rem;
+  border-radius: 10%;
+  margin: 0.3rem;
+}
+
+.restart {
+  background-color: #0197f6;
+  padding: 1rem;
+  border-radius: 10%;
+  margin: 0.3rem;
+}
+
+.home:hover,
+.home:focus {
+  background-color: #0090e9;
+}
+
+.restart:hover,
+.restart:focus {
+  background-color: #0090e9;
+}
+/***celá tabulka***/
+table {
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vmin;
+}
+/**tlačítka 10x10*/
+td {
+  flex-basis: 10%;
+  margin: 0;
+  padding: 0;
+  background: hsla(0, 0%, 100%, 0.315);
+  cursor: pointer;
+  border: 1px solid rgb(65, 65, 65);
+}
+
+td:hover,
+td:focus {
+  background-color: hsla(0, 0%, 100%, 0.616);
+}
+
+.table:focus {
+  outline: none;
+}
+
+td:box--circle {
+  background-image: url(images/circle.svg);
+  color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+}
+
+.hraci_plocha_box--cross {
+  background-image: url(images/cross.svg);
+  color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+}
+
+/**game hlavička s titulkem*/
 .game {
   color: #ffffff;
   font-size: 20px;
@@ -160,17 +228,6 @@ li.rules__item {
   font-size: 5rem;
   margin: 1.5rem;
   text-align: auto;
-}
-
-button {
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  margin: 1px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 2rem;
 }
 
 .circle {
@@ -210,7 +267,7 @@ button {
 .restart {
   background-color: #0197f6;
   display: block;
-  margin: 0 3%;
+  margin: 10 3%;
   padding: 3%;
   border-radius: 5px;
 }
@@ -222,33 +279,24 @@ button {
 /*pozadí*/
 
 td {
-  background-color: white;
-  height: 1rem;
-  width: 1rem;
+  background-color: hsla(0, 0%, 100%, 0.616);
+
+  height: 2rem;
+  width: 2rem;
 }
 
-button {
-  width: 10%;
-  border: 1px solid black;
-  padding: 0;
-  background-color: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-}
-/***hra***/
-
-game {
-  max-width: 80vmin;
-  margin: 40px auto;
+.td--circle {
+  background-image: url(images/circle.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  color: black;
 }
 
-.game_button {
-  height: 10%;
-  width: 8%;
-  background-color: white;
-  border: 1px solid rgb(38, 28, 78);
-}
-
-.game_button:hover,
-.game_button:focus {
-  background-color: rgba(255, 255, 255, 0.7);
+.td--cross {
+  background-image: url(images/cross.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  color: black;
 }
