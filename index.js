@@ -53,3 +53,23 @@ const playingFunction = (event) => {
 document.querySelectorAll('.tabulka button').forEach((element) => {
   element.addEventListener('click', playingFunction);
 });
+
+/**** */
+
+const boardSize = 10; // 10x10
+const fields = document.querySelectorAll('.td'); // Selektor pozměň tak, aby odpovídal tvému kódu.
+
+const getPosition = (field) => {
+  let fieldIndex = 0;
+  while (fieldIndex < fields.length) {
+    if (field === fields[fieldIndex]) {
+      break;
+    }
+    fieldIndex++;
+  }
+
+  return {
+    row: Math.floor(fieldIndex / boardSize),
+    column: fieldIndex % boardSize,
+  };
+};
