@@ -288,6 +288,11 @@ td {
   cursor: pointer;
 }
 
+button:hover,
+button:focus {
+  background-color: hsla(0, 0%, 100%, 0.616);
+}
+
 .td--circle {
   background-image: url(images/circle.svg);
   background-position: center;
