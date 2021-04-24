@@ -174,9 +174,8 @@ li.rules__item {
 }
 /***celá tabulka***/
 table {
-  display: flex;
-  flex-wrap: wrap;
   height: 80vmin;
+  width: 80vmin;
   border-collapse: collapse;
 }
 /**tlačítka 10x10*/
