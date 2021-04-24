@@ -4,6 +4,13 @@ let playing = 'circle';
 let click = 0;
 const playingCross = document.querySelector('.circle');
 
+const reloadPage = (msg) => {
+  setTimeout(() => {
+    alert(msg);
+    window.location.reload();
+  }, 10);
+};
+
 const playingFunction = (event) => {
   if (event.target.disabled) {
     return;
@@ -17,6 +24,17 @@ const playingFunction = (event) => {
     playingCross.src = 'images/circle.svg';
   }
   event.target.disabled = true;
+
+  /*dotázání se-výhra-křížek*/
+  const winning = isWinningMove(event.target);
+  if (winning === true && getSymbol(event.target) === 'cross') {
+    reloadPage('Křížek vyhrává! Začít znova?');
+  }
+
+  /*dotázání se-výhra-kolečko*/
+  if (winning === true && getSymbol(event.target) === 'circle') {
+    reloadPage('Kolečko vyhrává! Začít znova?');
+  }
 };
 
 document.querySelectorAll('.tabulka button').forEach((element) => {
@@ -27,7 +45,7 @@ document.querySelectorAll('.tabulka button').forEach((element) => {
 
 const boardSize = 10; // 10x10
 
-const button = document.querySelectorAll('.tabulka button'); // Selektor pozměň tak, aby odpovídal tvému kódu.
+const buttons = document.querySelectorAll('.tabulka button'); // Selektor pozměň tak, aby odpovídal tvému kódu.
 
 const getPosition = (button) => {
   let buttonIndex = 0;
@@ -42,111 +60,76 @@ const getPosition = (button) => {
     row: Math.floor(buttonIndex / boardSize),
     column: buttonIndex % boardSize,
   };
+};
 
-  console.log(button());
+/**vrácení příslušného prvku**/
 
-  /**vrácení příslušného prvku**/
+const getField = (row, column) => buttons[row * boardSize + column];
 
-  const getField = (row, column) => button[row * boardSize + column];
+/**vrácení řetězce**/
 
-  /**vrácení řetězce**/
+const getSymbol = (button) => {
+  // Název třídy přizpůsob tvému kódu.
+  if (button.classList.contains('td--cross')) {
+    return 'cross';
+  } else if (button.classList.contains('td--circle')) {
+    return 'circle';
+  }
+};
 
-  const getSymbol = (button) => {
-    // Název třídy přizpůsob tvému kódu.
-    if (button.classList.contains('td--cross')) {
-      return 'cross';
-    } else if (button.classList.contains('td--circle')) {
-      return 'circle';
-    }
-  };
+/** sousedních pět**/
 
-  /** sousedních pět**/
-
-  const symbolsToWin = 5;
-  const isWinningMove = (button) => {
-    const origin = getPosition(button);
-    const symbol = getSymbol(button);
-
-    let i;
-
-    let inRow = 1; // Jednička pro právě vybrané políčko
-
-    // Koukni doleva
-    i = origin.column;
-    while (i > 0 && symbol === getSymbol(getField(origin.row, i - 1))) {
-      inRow++;
-      i--;
-    }
-
-    // Koukni doprava
-    i = origin.column;
-    while (
-      i < boardSize - 1 &&
-      symbol === getSymbol(getField(origin.row, i + 1))
-    ) {
-      inRow++;
-      i++;
-    }
-
-    if (inRow >= symbolsToWin) {
-      return true;
-    }
-
-    let inColumn = 1;
-    // Koukni nahoru
-    i = origin.row;
-    while (i > 0 && symbol === getSymbol(getField(i - 1, origin.column))) {
-      inColumn++;
-      i--;
-    }
-
-    // Koukni dolu
-    i = origin.row;
-    while (
-      i < boardSize - 1 &&
-      symbol === getSymbol(getField(i + 1, origin.column))
-    ) {
-      inColumn++;
-      i++;
-    }
-
-    if (inColumn >= symbolsToWin) {
-      return true;
-    }
-
-    return false;
-  };
-
-  /**const buttons = documnent.querySelectorAll('button');
-  /** 
 const symbolsToWin = 5;
-const isWinningMove = (cell) => {
-const origin = getPosition(cell);
-const symbol = getSymbol(cell);
-};
-*/
+const isWinningMove = (button) => {
+  const origin = getPosition(button);
+  const symbol = getSymbol(button);
 
-  /*dotázání se-výhra-kolečko*/
+  let i;
 
-  /*isWinningMove(buttonAfterClick);
-  if (isWinningMove(buttonAfterClick) === true) {
-    reloadPage('Kolečko vyhrává! Začít znova?');
+  let inRow = 1; // Jednička pro právě vybrané políčko
+
+  // Koukni doleva
+  i = origin.column;
+  while (i > 0 && symbol === getSymbol(getField(origin.row, i - 1))) {
+    inRow++;
+    i--;
   }
 
-  /*dotázání se-výhra-křížek*/
-
-  /**isWinningMove(buttonAfterClick);
-  if (isWinningMove(buttonAfterClick) === true) {
-    reloadPage('Křížek vyhrává! Začít znova?');
+  // Koukni doprava
+  i = origin.column;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(origin.row, i + 1))
+  ) {
+    inRow++;
+    i++;
   }
-  /***spuštění funkce***/
-  console.log(isWinningMove(buttonAfterClick));
-};
 
-const confirmMessage = () => {
-  if (circlePlays.className === 'td--cross') {
-    return 'Křížek vyhrává! Začít znova?';
-  } else {
-    return 'Kolečko vyhrává! Začít znova?';
+  if (inRow >= symbolsToWin) {
+    return true;
   }
+
+  let inColumn = 1;
+  // Koukni nahoru
+  i = origin.row;
+  while (i > 0 && symbol === getSymbol(getField(i - 1, origin.column))) {
+    inColumn++;
+    i--;
+  }
+
+  // Koukni dolu
+  i = origin.row;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(i + 1, origin.column))
+  ) {
+    inColumn++;
+    i++;
+  }
+
+  if (inColumn >= symbolsToWin) {
+    return true;
+  }
+
+  return false;
 };
